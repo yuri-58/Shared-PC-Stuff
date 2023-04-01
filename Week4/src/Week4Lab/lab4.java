@@ -2,7 +2,11 @@ package Week4Lab;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class lab4 {
 
@@ -20,6 +24,8 @@ public class lab4 {
 	alpha.append(" Hiya how are ya?");
 	
 	System.out.println(alpha);
+	
+	char beta = 'R';
 			
 		
 				
@@ -32,6 +38,23 @@ public class lab4 {
 	catNames.add("Love");
 	catNames.add("Thomas");
 	catNames.add("Oliver");
+	
+	List<Integer> randomNumber = new ArrayList<Integer>();
+	randomNumber.add(7);
+	randomNumber.add(3);
+	randomNumber.add(45);
+	randomNumber.add(52);
+	randomNumber.add(78);
+	randomNumber.add(24);
+	randomNumber.add(81);
+	randomNumber.add(16);
+	randomNumber.add(12);
+	randomNumber.add(9);
+	randomNumber.add(89);
+	randomNumber.add(14);
+	randomNumber.add(5);
+	randomNumber.add(90);
+	randomNumber.add(8);
 	
 	String omega = "Butch";
 	
@@ -70,37 +93,51 @@ public class lab4 {
 				//		b. The second List contains values from the input list that are divisible by 3
 				//		c. The third containing values divisible by 5, and 
 				//		d. The fourth all numbers from the input List not divisible by 2, 3, or 5
-	
+	//System.out.println(newList(randomNumber));
 				
 				// 8. Write and test a method that takes a list of strings 
 				//			and returns a list of integers that contains the length of each string
-
+	//System.out.println(listStringToInt(catNames));
 
 				
 				// 9. Create a set of strings and add 5 values
-
-				
+	Set<String> bandNames = new HashSet<String>();
+	bandNames.add("Good Morning Guilty");
+	bandNames.add("Rise Against");
+	bandNames.add("Tool");
+	bandNames.add("21 Pilots");
+	bandNames.add("Offspring");
 				
 				// 10. Write and test a method that takes a set of strings and a character 
 				//			and returns a set of strings consisting of all the strings in the
 				// 			input set that start with the character parameter.
-
+	//System.out.println(setStringWithChar(bandNames, beta));
 
 				
 				// 11. Write and test a method that takes a set of strings 
 				//			and returns a list of the same strings
-			
+	//System.out.println(setToList(bandNames));
 				
 
 				// 12. Write and test a method that takes a set of integers 
 				//			and returns a new set of integers containing only even numbers 
 				//			from the original set
-
-
+	Set<Integer> moreRandoNums = new HashSet<Integer>();
+	moreRandoNums.add(7);
+	moreRandoNums.add(12);
+	moreRandoNums.add(14);
+	moreRandoNums.add(21);
+	moreRandoNums.add(23);
+	moreRandoNums.add(27);
+	moreRandoNums.add(32);
+	moreRandoNums.add(41);
+	moreRandoNums.add(59);
+	
+	//System.out.println(setToEvenSet(moreRandoNums));
 				
 				// 13. Create a map of string and string and add 3 items to it where the key of each
 				// 			is a word and the value is the definition of the word
-
+	Map<Integer, String> wordDefinitions = new HashMap<Integer, String>();
 			
 				
 				// 14. Write and test a method that takes a Map<String, String> and a string 
@@ -125,23 +162,105 @@ public class lab4 {
 
 			
 			// Method 12:
+	public static Set<Integer> setToEvenSet(Set<Integer> a){
+		
+		Set<Integer> alpha = new HashSet<Integer>();
+		
+		for (Integer number : a) {
 			
+			if (number % 2 == 0) {
+				alpha.add(number);
+			}
+		}
+		
+		return alpha;
+	}
 
 			
 			// Method 11:
-			
+	public static List<String> setToList(Set<String> a){
+		
+		List<String> alpha = new ArrayList<String>(a);
+		
+		return alpha;
+	}
 
 
 			// Method 10:
+	public static Set<String> setStringWithChar(Set<String> a, char b) {
+		
+		Set<String> printed = new HashSet<String>(); //initialize a new set
+		
+		for (String string : a) { //for Strings inside of the set of Strings a
 			
+			if (string.charAt(0) == b) { //if the string contains a starting character b,
+				printed.add(string);	// add it to the new set
+			}
+			
+		}
+		
+		return printed;
+	}
 
 			
 			// Method 8:
-			
+	public static List<Integer> listStringToInt(List<String> a) {
+		
+		List<Integer> alpha = new ArrayList<Integer>();
+		String b = "";
+		int c = 0;
+		
+		for (int i = 0; i < a.size(); i++) {
+			b = a.get(i);
+			c = b.length();
+			alpha.add(c);
+		}
+		
+		return alpha;
+	}
 
 			
 			// Method 7:
+	public static List<Integer> newList(List<Integer> a){
+		
+		List<Integer> alpha = new ArrayList<Integer>();
+		List<Integer> beta = new ArrayList<Integer>();
+		List<Integer> delta = new ArrayList<Integer>();
+		List<Integer> lambda = new ArrayList<Integer>();
+		List<Integer> omega = new ArrayList<Integer>();
+		
+		for (int i = 0; i < a.size(); i++) {
 			
+			if (a.get(i) % 2 == 0) {
+				
+				int n = a.get(i);
+				alpha.add(n);
+			} else if (a.get(i) % 3 == 0) {
+				
+				int m = a.get(i);
+				beta.add(m);
+			}else if (a.get(i) % 5 == 0) {
+				
+				int p = a.get(i);
+				delta.add(p);
+			} else {
+				
+				int q = a.get(i);
+				lambda.add(q);
+			}
+			
+		}
+		alpha.add(null);
+		beta.add(null);
+		delta.add(null);
+		
+		omega.addAll(alpha);
+		omega.addAll(beta);
+		omega.addAll(delta);
+		omega.addAll(lambda);
+		
+		return omega;
+	}
 
 			
 			// Method 6:
