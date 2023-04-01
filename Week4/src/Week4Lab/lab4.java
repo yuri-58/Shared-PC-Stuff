@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 public class lab4 {
@@ -16,6 +17,8 @@ public class lab4 {
 				// 		a. Instantiate a new StringBuilder
 				//		b. Append the characters 0 through 9 to it separated by dashes
 				// 				Note:  make sure no dash appears at the end of the StringBuilder
+	Scanner in = new Scanner (System.in);
+		
 	StringBuilder alpha = new StringBuilder ();
 	alpha.append("Hello there");
 	
@@ -137,28 +140,56 @@ public class lab4 {
 				
 				// 13. Create a map of string and string and add 3 items to it where the key of each
 				// 			is a word and the value is the definition of the word
-	Map<Integer, String> wordDefinitions = new HashMap<Integer, String>();
+	Map<String, String> wordDefinitions = new HashMap<String, String>();
+	wordDefinitions.put("Fear", "an unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat.");
+	wordDefinitions.put("Courage", "the ability to do something that frightens one.");
+	wordDefinitions.put("Strive", "to make great efforts to achieve or obtain something. To have the courage, dispite all fear, to fight your achievment");
 			
-				
+	String input = in.next();			
 				// 14. Write and test a method that takes a Map<String, String> and a string 
 				// 			and returns the value for a key in the map that matches the
 				// 			string parameter (i.e. like a language dictionary lookup)
-
+	//System.out.println(lookUp(wordDefinitions, input));
 				
 				// 15. Write and test a method that takes a List<String> 
 				//			and returns a Map<Character, Integer> containing a count of 
 				//			all the strings that start with a given character
-				
+	System.out.println(countString(catNames));			
 
 			}
 			
 			
 			// Method 15:
+	public static Map<Character, Integer> countString(List<String> a) {
+		
+		Map<Character, Integer> alpha = new HashMap<Character, Integer>();
+		
+		for (String string : a) {
+			char b = string.charAt(0);
 			
+			if (alpha.get(b) == null) {
+				alpha.put(b, 1);
+			} else {
+				alpha.put(b, alpha.get(b) + 1);
+			}
+		}
+		
+		return alpha;
+	}
 			
 			
 			// Method 14:
-			
+	public static String lookUp(Map<String, String> b, String a) {
+		
+		for(String key : b.keySet()) {
+			if (key.equals(a)) {
+				return b.get(key);
+			}
+		}
+		
+		
+		return null;
+	}
 
 			
 			// Method 12:
