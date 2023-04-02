@@ -8,27 +8,67 @@ public class project {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner (System.in);
 		//String oG = "Will you use the original array (8) or the new (9)? ";
-		//String isIt = "True or False: It is hot ouside! How much money ya got?";
+		//String isIt = "True or False: It is hot outside! How much money ya got?";
 		//System.out.print(oG);
 		//String userWord = in.next();
+		//int userInputNumber = in.nextInt();
 		//String firstName = in.next();
 		//String lastName = in.next();
-		//int alpha = in.nextInt();
 		//System.out.println(isIt);
 		//boolean isHotOutside = in.nextBoolean();
 		//double moneyInPocket = in.nextDouble();
-		int userInputNumber = in.nextInt();
+		int alpha = in.nextInt();
 		
 		
 		
+		
+		//1 using arrayIntAge
+		//System.out.println(subt(userInputNumber));
+		
+		//1b using 9, refer to intAge again
+		
+		//1c refer to arrayIntAvgSum, arrayIntAvgSum, and avG
+		//System.out.println(avG(userInputNumber));
+		
+		//2 refer to names, disable userinputnumber
+		
+		//2a refer to names and avgChar
+		//System.out.println(avgChar(true));
+		
+		//2b refer to concat names
+		//System.out.println(concatNames(true));
+		
+		//6 refer to nameSum
+		//System.out.println(nameSum(true));
+		
+		//7 unlock string scanner userword and int scanner userinputnumber
+		//System.out.println(repeat(userWord, userInputNumber));
+		
+		//8 disable userinput and userWord, unlock firstname and lastname, refer to name entry
+		//System.out.println(nameEntry(firstName, lastName));
+		
+		//9 disable all scanners
+		//System.out.println(checkArray(true));
+		
+		//10
+		//System.out.println(doubArrayAvg(true));
+		
+		//11 
+		//System.out.println(twoDoubArrayEntry(true));
+		
+		//12 unlock boolean and double
 		//System.out.println(willBuyDrink(isHotOutside, moneyInPocket));
-		number(userInputNumber);
+		
+		//13
+		number(alpha);
+		
+		
 	}
 //End of main Runner
 	public static int subt (int a) {
 		
 		int [] arrayUsed = arrayIntAge(a);
-		int subt = arrayUsed[arrayUsed.length - 1] - arrayUsed[0];
+		int subt = arrayUsed[0] - arrayUsed[arrayUsed.length - 1];
 		return subt;
 	}
 	
@@ -55,8 +95,21 @@ public static int arrayIntAvgSum(int[] array) {
 			avg += sum;
 			i++;
 		}
-		return avg;
+		return avg / array.length;
 	}
+
+public static int arrayIntSum(int[] array) {
+	
+	int newSum = 0;
+	int i = 0;
+	
+	for (int sum : array) {
+		array[i] += sum;
+		newSum += sum;
+		i++;
+	}
+	return newSum;
+}
 	
 	public static int avG (int a) {
 		
@@ -130,6 +183,8 @@ public static double[] arrayDoubAge(boolean a) {
 		return ages;
 	}
 	
+	
+	
 	public static String[] names (boolean a) {
 		
 		String[] listOfNames = {"Sam", "Tommy", "Tim", "Sally", "Buck", "Bob"};
@@ -182,15 +237,15 @@ public static double[] arrayDoubAge(boolean a) {
 		
 		int[] nameLengths = nameLengths(true);
 		
-		int avg = arrayIntAvgSum(nameLengths);
-		return avg;
+		int sum = arrayIntSum(nameLengths);
+		return sum;
 	}
 	
-	public static String repeat(String word, int a) {
+	public static String repeat(String word, int n) {
 		
 		String b = "";
 		
-		for (int i = 0; i < a; i++) {
+		for (int i = 0; i < n; i++) {
 			b += word;
 		}
 		return b;
@@ -266,7 +321,7 @@ public static double[] arrayDoubAge(boolean a) {
 		
 		int[]fs = sequenceNumber(a);
 		
-		for (int i = 0; i < fs.length; i++) {
+		for (int i = 0; i < a; i++) {
 			System.out.print(fs[i] + ", ");
 		}
 	}
